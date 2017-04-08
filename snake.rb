@@ -192,7 +192,7 @@ end
 class Apple < GameObject
   def initialize(x = 0, y = 0)
     super
-    @image = Gosu::Image.new("magicapple.bmp")
+    @image = Gosu::Image.new("magic_apple.bmp")
   end
 end
 
@@ -200,7 +200,7 @@ class SuperApple < GameObject
   VALUE = 2
   def initialize(x = 0, y = 0)
     super
-    @image = Gosu::Image.new("superapple.bmp")
+    @image = Gosu::Image.new("super_apple.bmp")
   end
 end
 
@@ -285,7 +285,7 @@ class ObjectManager
     # Every time a round is over
     if @apples.empty?
       (@round + 1).times { spawn(@apples) { |pos| Apple.new(*pos)} }
-      spawn(@super_apples) { |pos| SuperApple.new(*pos) } if RNGHelper.chance(40)
+      spawn(@super_apples) { |pos| SuperApple.new(*pos) } if RNGHelper.chance(30)
       spawn(@holes) { |pos| Hole.new(*pos) } if RNGHelper.chance(50)
       create_portals if @portals.empty? && RNGHelper.chance(30)
       @round += 1
